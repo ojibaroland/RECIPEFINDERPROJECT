@@ -18,7 +18,7 @@ app.get('/get',(req,res) => {
 });
 app.use('/recipe', recipeRoute)
 
-app.use('/roland', userroute)
+app.use('/user', userroute)
 
 
 app.listen(PORT, () => {

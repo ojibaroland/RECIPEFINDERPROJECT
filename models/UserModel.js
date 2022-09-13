@@ -33,15 +33,15 @@ const userSchema = new mongoose.Schema(
 )
 
 // hash password
-userSchema.pre('save', async function(next){
-    const user = this
-    if(user.isModified('password')) {
-        const salt = await bcrypt.genSalt();
-        user.password = await bcrypt.hash(user.password, salt);
-        next();
-    }
-    next()
-    
-})
+// userSchema.pre('save', async function(next){
+//     const user = this
+//     if(user.isModified('password')) {
+//         const salt = await bcrypt.genSalt();
+//         user.password = await bcrypt.hash(user.password, salt);
+//         next();
+//     }
+//     next()
+
+// })
 
 export const User = mongoose.model('User', userSchema)
