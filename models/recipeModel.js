@@ -41,7 +41,6 @@ const recipeSchema = new mongoose.Schema(
         }],
         tag: {
             type: String,
-            required: true,
         },
         likes: [{
             type: String,

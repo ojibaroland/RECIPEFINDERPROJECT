@@ -1,8 +1,18 @@
 import express from 'express';
-import { createRecipe } from '../controllers/recipecontroller.js';
+import { createRecipe, getAllRecipe, getRecipe, updateRecipe,deleteRecipe } from '../controllers/recipecontroller.js';
+import { verifyToken } from '../middleware/authentication.js';
 
 const router = express.Router();
 
-router.post('/create',createRecipe)
+
+router.get('/',getAllRecipe);
+router.get('/:id',getRecipe);
+router.post('/create', createRecipe);
+router.put('/update/:id',updateRecipe);
+router.delete('/delete/:id',deleteRecipe)
+
+
+
+
 
 export default router;
