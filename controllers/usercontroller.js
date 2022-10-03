@@ -6,13 +6,13 @@ import { User } from '../models/UserModel.js'
 // create a new organization
 export const createUser = async (req, res) => {
     try {
-        const finder = new User(req.body);
+        const  userCreate =  new User(req.body);
 
 
-        await finder.save();
+        await userCreate.save();
         res.json({
             message: "User created successfully",
-            data: finder
+            data: userCreate
         })
     } catch (error) {
         console.error(error.message);
@@ -22,10 +22,10 @@ export const createUser = async (req, res) => {
 // get all User
 export const getAllUser = async (req, res) => {
     try {
-        const finder = await User.find();
+        const userCreate = await User.find();
 
-        if (finder) {
-            res.send(finder);
+        if (userCreate) {
+            res.send(userCreate);
         } else {
             res.send("No User found");
         }
@@ -43,9 +43,9 @@ export const getUser = async (req, res) => {
             });
         }
         const id = req.params.id;
-        const finder = await User.findById(id);
-        if (finder) {
-            res.send(finder);
+        const userCreate = await User.findById(id);
+        if (userCreate) {
+            res.send(userCreate);
         }
     } catch (error) {
         console.error(error.message);
@@ -61,14 +61,14 @@ export const updateUser = async (req, res) => {
             })
         }
         const id = req.params.id;
-        const finder = await User.findByIdAndUpdate(id, req.body, {
+        const userCreate = await User.findByIdAndUpdate(id, req.body, {
             new: true,
             runValidators: true
         })
-        if (finder) {
+        if (userCreate) {
             res.json({
                 message: "User updated successfully",
-                data: finder
+                data: userCreate
             });
         }
     } catch (error) {
@@ -85,8 +85,8 @@ export const deleteUser = async (req, res) => {
             });
         }
         const id = req.params.id;
-        const finder = await User.findByIdAndDelete(id);
-        if (finder) {
+        const userCreate = await User.findByIdAndDelete(id);
+        if (userCreate) {
             res.json({
                 message: "Organization deleted successfully"
             });
