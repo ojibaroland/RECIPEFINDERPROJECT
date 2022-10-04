@@ -15,7 +15,7 @@ app.use(express.json())
 const port =process.env.PORT || 4500
 
 app.get('/get',(req,res) => {
-    res.send(`Api is live at ${PORT}!!`)
+    res.send(`Api is live at ${port}!!`)
 });
 app.use('/recipe', recipeRoute)
 
