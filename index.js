@@ -12,7 +12,7 @@ const app = express();
 
 app.use(express.json())
 
-const PORT = 4500
+const port =process.env.PORT || 4500
 
 app.get('/get',(req,res) => {
     res.send(`Api is live at ${PORT}!!`)
@@ -23,6 +23,6 @@ app.use('/user', userroute)
 
 app.use('/sign', signuproute)
 
-app.listen(PORT, () => {
-    console.log(`App listening at ${PORT}`)
+app.listen(port, () => {
+    console.log(`App listening at ${port}`)
 })
